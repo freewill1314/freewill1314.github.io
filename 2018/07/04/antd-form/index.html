@@ -11,7 +11,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Superman,"> 
-    <meta name="description" content="stonelee,Form使用"> 
+    <meta name="description" content="stonelee,常用JS工具方法常用JS工具方法，可以直接在JS开发中拿来就用。so easy.
+
+日期时间显示格式化
+
+
+//common.js
+
+//日期时间显示 格式化 例:2016-12-12 12:12:,"> 
     <meta name="author" content="Stone Lee"> 
     <link rel="alternative" href="atom.xml" title="Stone-Lee" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -53,10 +60,99 @@
 
         </div>
         <div class="content markdown">
-            <h3 id="Form使用"><a href="#Form使用" class="headerlink" title="Form使用"></a>Form使用</h3>
+            <h3 id="Form使用"><a href="#Form使用" class="headerlink" title="Form使用"></a>Form使用</h3><p></p>
+
+<p>React中内容元素的显示，尽量避免通过CSS属性display控制，而应该通过如下方式：</p>
+<pre>
+<code>
+//导出按钮的显示控制
+//定义按钮变量
+let exportButton = null;
+if(labEnableFlag){
+    exportButton = (
+        &lt;Button onClick={handleExport}&gt;
+            导出
+        &lt;/Button&gt;
+    );
+}
+
+//render中使用
+{exportButton}
+</code>
+</pre>
+
+
+<p>Select下拉选-单选模式</p>
+<pre>
+<code>
+const fieldStyle = { 
+    width: '100%' 
+};
+
+&lt;Select 
+    allowClear  //支持清除
+    placeholder="请选择" 
+    style={fieldStyle}
+&gt;
+    {positionList &amp;&amp; positionList.map((item, key) =&gt; &lt;Option value={item.id} key={key}&gt;{item.name}&lt;/Option&gt;)}
+&lt;/Select&gt;
+</code>
+</pre>
+
+<hr>
+<p>Select下拉选-多选模式</p>
+<pre>
+<code>
+const fieldStyle = { 
+    width: '100%' 
+};
+
+&lt;Select 
+    mode="multiple" 
+    placeholder="请选择" 
+    optionFilterProp="children"
+    style={fieldStyle}
+&gt;
+    {positionList &amp;&amp; positionList.map((item, key) =&gt; &lt;Option value={item.id} key={key}&gt;{item.name}&lt;/Option&gt;)}
+&lt;/Select&gt;
+</code>
+</pre>
+
+
+<hr>
+<p>文本输入框–支持手动清空</p>
+<pre>
+<code>
+const clearIcon = {
+    cursor: 'pointer',
+    color: 'rgba(0, 0, 0, 0.45)'
+};
+
+//通用的清空方法
+function emitEmpty(fieldName){
+    resetFields([fieldName]);
+}
+
+const nameSuffix = getFieldValue('name') ? &lt;Icon type="close-circle" style={clearIcon} onClick={e =&gt; emitEmpty('name')} /&gt; : null;
+
+const fieldStyle = { 
+    width: '100%' 
+};
+
+&lt;Input 
+    placeholder="请输入" 
+    suffix={nameSuffix} //添加清空图标
+    style={fieldStyle}
+/&gt;
+</code>
+</pre>
+
+
+
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="http://m10.music.126.net/20180704104304/e8317641ece73a8cc4c0f1561bfea2bb/ymusic/f23d/0015/b50d/a362ca105b0197a7254af87de669a0af.mp3">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=28613416.mp3">
             </audio>
         </div>
         
@@ -64,7 +160,7 @@
         data-ae='false'
         data-ci='a396afe529734b15300f'
         data-cs='0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567'
-        data-r='Superman.github.io'
+        data-r='superman.github.io'
         data-o='Superman'
         data-a='Superman'
         data-d='false'

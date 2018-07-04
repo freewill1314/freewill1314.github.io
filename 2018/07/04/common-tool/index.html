@@ -29,127 +29,144 @@
 
 <body class="loading">
     <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/whoami" title="站点简介" target="_blank" rel="noopener">站点简介</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://github.com/Superman" title="文章列表" target="_blank" rel="noopener">文章列表</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://twitter.com/Superman" title="文章分类" target="_blank" rel="noopener">文章分类</a>
-        </li>
-        
-    </ul>
-    <p id="copyright">
-        &copy; 2018 Stone Lee.
-        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
-        by Fechin
-    </p>
-</div>
-
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="http://odwjyz4z6.bkt.clouddn.com/tigase-pre-research_xiangji_2_mini.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">常用JS工具方法</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
         <div>
-            <a class="image-logo" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
         </div>
     </div>
-    
-    <div id="post0">
-        <p>七月 04, 2018</p>
-        <h2><a href="/2018/07/04/common-tool/" title="常用JS工具方法" class="posttitle">常用JS工具方法</a></h2>
-        <p class="summary">常用JS工具方法常用JS工具方法，可以直接在JS开发中拿来就用。so easy.
-
-日期时间显示格式化
-
-
-//c...</p>
-    </div>
-    
+    <div class="scrollbar"></div>
 </div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">常用JS工具方法</h1>
+        <div class="stuff">
+            <span>七月 04, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/">js</a></li></ul>
 
-    <div id="primary">
+
+        </div>
+        <div class="content markdown">
+            <h3 id="常用JS工具方法"><a href="#常用JS工具方法" class="headerlink" title="常用JS工具方法"></a>常用JS工具方法</h3><p>常用JS工具方法，可以直接在JS开发中拿来就用。so easy.</p>
+
+<p>日期时间显示格式化</p>
+<pre>
+<code>
+//common.js
+
+//日期时间显示 格式化 例:2016-12-12 12:12:12
+let datetimeFormat = function(data, fmt){
+    if(!data){
+        return '';
+    }else{
+        var dateData = new Date(data);
+        var o = {
+            "Y+" : dateData.getFullYear(),                //年份
+            "M+" : dateData.getMonth()+1,                 //月份
+            "d+" : dateData.getDate(),                    //日
+            "h+" : dateData.getHours(),                   //小时
+            "m+" : dateData.getMinutes(),                 //分
+            "s+" : dateData.getSeconds(),                 //秒
+            "q+" : Math.floor((dateData.getMonth()+3)/3), //季度
+            "S"  : dateData.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt)){
+            fmt=fmt.replace(RegExp.$1, (dateData.getFullYear()+"").substr(4 - RegExp.$1.length));
+        }
+        for(var k in o){
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+};
+
+module.exports = {
+    datetimeFormat
+}
+
+//使用
+import { datetimeFormat } from 'common';
+
+createTime = datetimeFormat(createTime, "Y-MM-dd hh:mm:ss");
+</code>
+</pre>
+
+<p>获取页面链接参数</p>
+<pre>
+<code>
+//common.js
+
+let getUrlParam = function(name) {
+    let str = window.location.href;
+    let num = str.indexOf("?") 
+     str = str.substr(num+1);
+
+    let arr = str.split("&amp;"), params = {}; //各个参数放到数组里
+     for(let i=0; i&lt;arr.length; i++){ 
+      num = arr[i].indexOf("="); 
+      if(num&gt;0){
+          let key = arr[i].substring(0,num);
+          let value = arr[i].substr(num+1);
+          params[key] = value;
+      } 
+    }
+
+    if(params[name]){
+      return params[name];
+    }else{
+      return null;
+    }
+}
+
+module.exports = {
+    getUrlParam
+}
+
+//使用
+import { getUrlParam } from 'common';
+
+getUrlParam('id')
+</code>
+</pre>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=28613416.mp3">
+            </audio>
+        </div>
         
-<div class="post">
-    <a href="/2018/07/04/antd-form/" title="Ant Design of React 之 Form 学习心得">
-        <img src="http://odwjyz4z6.bkt.clouddn.com/ml02/ml02cover2.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>七月 04, 2018</p>
-        <h3><a href="/2018/07/04/antd-form/" title="Ant Design of React 之 Form 学习心得" class="posttitle">Ant Design of React 之 Form 学习心得</a></h3>
-        <p>Form使用
-
-React中内容元素的显示，尽量避免通过CSS属性display控制，而应该通过如下方式：
-
-
-//导出按钮的显示控制
-//定义按钮变量
-...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/07/04/antd-table/" title="Ant Design of React 之 Table 学习心得">
-        <img src="http://odwjyz4z6.bkt.clouddn.com/index/Softonic-image-1.png" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>七月 04, 2018</p>
-        <h3><a href="/2018/07/04/antd-table/" title="Ant Design of React 之 Table 学习心得" class="posttitle">Ant Design of React 之 Table 学习心得</a></h3>
-        <p>Table使用antd，即And·Design的简称。
-antd中的Table组件是比较强大的，不过在实际项目中还是要自己手动处理一下，用起来效果更佳。写...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/06/24/remember/" title="remember">
-        <img src="https://isujin.com/wp-content/uploads/2018/03/wallhaven-606235.png" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>六月 24, 2018</p>
-        <h3><a href="/2018/06/24/remember/" title="remember" class="posttitle">remember</a></h3>
-        <p></p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/06/24/hello-world/" title="Hello World">
-        <img src="https://isujin.com/wp-content/uploads/2018/03/wallhaven-606235.png" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>六月 24, 2018</p>
-        <h3><a href="/2018/06/24/hello-world/" title="Hello World" class="posttitle">Hello World</a></h3>
-        <p>Welcome to Hexo! This is your very first post. Check documentation for more i...</p>
-    </div>
-</div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='a396afe529734b15300f'
+        data-cs='0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567'
+        data-r='superman.github.io'
+        data-o='Superman'
+        data-a='Superman'
+        data-d='false'
+    >查看评论</div>
 
 
     </div>
     
 </div>
-<div id="preview"></div>
 
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
