@@ -35,7 +35,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Ant Design of React 之 Table 学习心得</h3>
+    <h3 class="subtitle">书读了会忘，那读书还有什么意义（摘录）</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -52,154 +52,21 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Ant Design of React 之 Table 学习心得</h1>
+        <h1 class="title">书读了会忘，那读书还有什么意义（摘录）</h1>
         <div class="stuff">
-            <span>七月 04, 2018</span>
+            <span>七月 05, 2018</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/antd/">antd</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/react/">react</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/table/">table</a></li></ul>
-
 
         </div>
         <div class="content markdown">
-            <h3 id="Table使用"><a href="#Table使用" class="headerlink" title="Table使用"></a>Table使用</h3><p>antd，即And·Design的简称。</p>
-<p>antd中的Table组件是比较强大的，不过在实际项目中还是要自己手动处理一下，用起来效果更佳。写法如下示例：</p>
-
-<p>表格组件定义</p>
-<pre>
-<code>
-&lt;Table
-    size="middle"                   //表格大小: small/middle/large
-    columns={columns}               //列定义
-    dataSource={list}               //表格数据
-    loading={loading}               //表格加载状态
-    rowKey={record => record.id}    //主键设置
-    rowSelection={rowSelection}     //表格选择定义：单选、多选
-    pagination={false}              //分页设置
-    scroll={scroll}                 //表格尺寸定义
-/&gt;
-</code>
-</pre>
-
-<hr>
-<p>分页组件定义</p>
-<pre>
-<code>
-const pageStyle = {
-    marginTop : &#x27;16px&#x27;, 
-    textAlign: &#x27;right&#x27;, 
-    display: (list &amp;&amp; list.length &gt; 0 ? &#x27;block&#x27; : &#x27;none&#x27; )
-};
-
-&lt;div style={pageStyle}&gt;
-    &lt;Pagination {...paginationProps}/&gt;
-&lt;/div&gt;
-</code>
-</pre>
-
-<hr>
-<p>表格列定义</p>
-<pre>
-<code>
-const columns = [{
-    title: '姓名',
-    key: 'name',
-    dataIndex: 'name',
-    width: 150
-},{
-    title: '性别',
-    key: 'sex',
-    dataIndex: 'sex',
-    width: 100
-},{
-    title: '年龄',
-    key: 'age',
-    dataIndex: 'age',
-    width: 100
-}];
-
-//动态计算表格宽度
-let tableWidth = 0;
-columns.map(function(item){
-    if(item.width){
-        tableWidth += parseInt(item.width);
-    }
-});
-</code>
-</pre>
-
-<p>PS：如果屏幕分辨率的宽度大于表格的宽度，则显示的时候会自动按 [列宽/表格宽度]百分比 等比例显示。</p>
-<hr>
-<p>表格选择定义</p>
-<pre>
-<code>
-//选择功能的配置
-const rowSelection = {
-    type : 'checkbox',      //多选/单选，checkbox or radio
-    selectedRowKeys,        //指定选中项的key数组
-    onChange: onTableSelectChange,
-};
-
-//选中项发生变化的时的回调
-function onTableSelectChange(selectedKeys) {
-    updateState({
-        selectedRowKeys : selectedKeys
-    });
-}
-</code>
-</pre>
-
-<hr>
-<p>分页组件配置</p>
-<pre>
-<code>
-//分页大小发生改变
-function onShowSizeChange(current, pageSize){
-    updateState({
-        pageSize
-    });
-    dispatch({
-        type : 'models/query',
-        payload : { 
-            page : 1,           //页号
-            AAAAA: formValues   //查询对象
-        }
-    });
-}
-
-//访问指定页
-function onPaginationChange(current){
-    dispatch({
-        type: 'models/query',
-        payload: {
-            page: current,      //页号
-            AAAAA: formValues   //查询对象
-        }
-    });
-}
-
-//显示分页信息
-function showTotal(total, range){
-    return `当前显示第${range[0]} ~ ${range[1]}条，总共${total}条记录`;
-}
-
-const paginationProps = {
-    total,      //数据总数
-    current,    //当前页号
-    pageSize,   //分页大小
-    showTotal,  //分页信息
-    pageSizeOptions: ['10', '20', '50', '100'],     //分页大小选项
-    showSizeChanger : true,
-    showQuickJumper : true,
-    onShowSizeChange,
-    onChange: onPaginationChange
-};
-</code>
-</pre>
-
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;“当我还是个孩子时，我吃过很多的食物，现在已经记不起来吃过什么了。但可以肯定的是，它们中的一部分已经长成了我的骨头和肉。”</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;读过的书，其实并没有忘却，而是成为了我们精神气质的一部分。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;读书是一条路。这条路可以给我们选择的权利，可以让我们过上想要的生活，物质温饱，适当精神享受；选择有意义有时间的工作，而不是被迫谋生。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;坚持读书，享受精神自由，做一个快乐的普通人。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=27646786.mp3">
+                <source type="audio/mpeg" src="http://m10.music.126.net/20180704103024/b15da9608413115b72558bef2aa66869/ymusic/f23d/0015/b50d/a362ca105b0197a7254af87de669a0af.mp3">
             </audio>
         </div>
         

@@ -30,69 +30,94 @@
 
 <body class="loading">
     <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Hello World</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/whoami" title="站点简介" target="_blank" rel="noopener">站点简介</a>
+        </li>
+        
+        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://github.com/Superman" title="文章列表" target="_blank" rel="noopener">文章列表</a>
+        </li>
+        
+        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://twitter.com/Superman" title="文章分类" target="_blank" rel="noopener">文章分类</a>
+        </li>
+        
+    </ul>
+    <p id="copyright">
+        &copy; 2018 Stone Lee.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
+        by Fechin
+    </p>
+</div>
+
+<div id="container">
+    
+<div id="screen">
+    <div id="mark">
+        <div class="layer" data-depth="0.4">
+            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
         </div>
     </div>
-    <div class="scrollbar"></div>
+    <div id="vibrant">
+        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
+            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
+        </svg>
+        <div></div>
+    </div>
+    <div id="header">
+        <div>
+            <a class="image-logo" href="/"></a>
+            <div class="icon-menu switchmenu"></div>
+        </div>
+    </div>
+    
+    <div id="post0">
+        <p>七月 05, 2018</p>
+        <h2><a href="/2018/07/05/healthknowledge/" title="养生知识" class="posttitle">养生知识</a></h2>
+        <p class="summary">春不露脐，夏不睡石，秋不睡板，冬不蒙头。
+
+白天多动，夜里少梦，睡前洗脚，胜吃补药。
+
+春不露脐，夏不睡石，秋不睡...</p>
+    </div>
+    
 </div>
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">Hello World</h1>
-        <div class="stuff">
-            <span>六月 24, 2018</span>
-            
 
-        </div>
-        <div class="content markdown">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="http://m10.music.126.net/20180704103024/b15da9608413115b72558bef2aa66869/ymusic/f23d/0015/b50d/a362ca105b0197a7254af87de669a0af.mp3">
-            </audio>
-        </div>
+    <div id="primary">
         
-    <div id='gitalk-container' class="comment link"
-        data-ae='false'
-        data-ci='a396afe529734b15300f'
-        data-cs='0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567'
-        data-r='superman.github.io'
-        data-o='Superman'
-        data-a='Superman'
-        data-d='false'
-    >查看评论</div>
+<div class="post">
+    <a href="/2018/06/24/remember/" title="remember">
+        <img src="https://isujin.com/wp-content/uploads/2018/03/wallhaven-606235.png" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>六月 24, 2018</p>
+        <h3><a href="/2018/06/24/remember/" title="remember" class="posttitle">remember</a></h3>
+        <p></p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2018/06/24/hello-world/" title="Hello World">
+        <img src="https://isujin.com/wp-content/uploads/2018/03/wallhaven-606235.png" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>六月 24, 2018</p>
+        <h3><a href="/2018/06/24/hello-world/" title="Hello World" class="posttitle">Hello World</a></h3>
+        <p>Welcome to Hexo! This is your very first post. Check documentation for more i...</p>
+    </div>
+</div>
 
 
     </div>
     
 </div>
+<div id="preview"></div>
 
-
-    </div>
-</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
