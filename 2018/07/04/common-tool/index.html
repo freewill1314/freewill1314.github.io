@@ -11,15 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Superman,"> 
-    <meta name="description" content="stonelee,春不露脐，夏不睡石，秋不睡板，冬不蒙头。
-
-白天多动，夜里少梦，睡前洗脚，胜吃补药。
-
-春不露脐，夏不睡石，秋不睡板，冬不蒙头。
-
-早睡早起，怡神爽气，贪房贪睡，添病减岁。
-
-久视伤眼、久行伤筋、久,"> 
+    <meta name="description" content="stonelee,邮箱地址验证：/^(&amp;quot;)?(?:[^\.&amp;quot;])(?:(?:[\.])?(?:[\w\-!#$%&amp;amp;&amp;apos;*+/=?^_`{|}~]))*\1@(\w[\-\w]*\.,"> 
     <meta name="author" content="Stone Lee"> 
     <link rel="alternative" href="atom.xml" title="Stone-Lee&#39;s zone" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -61,8 +53,13 @@
 
         </div>
         <div class="content markdown">
-            <h3 id="常用JS工具方法"><a href="#常用JS工具方法" class="headerlink" title="常用JS工具方法"></a>常用JS工具方法</h3><p>常用JS工具方法，可以直接在JS开发中拿来就用。so easy.</p>
+            <p style="text-indent:2em;">常用JS工具方法，可以直接在JS开发中拿来就用。so easy.</p>
 
+<ul>
+<li>日期时间显示格式化</li>
+<li>获取页面链接参数</li>
+<li>文件大小显示格式化</li>
+</ul>
 <p>日期时间显示格式化</p>
 <pre>
 <code>
@@ -144,6 +141,19 @@ import { getUrlParam } from 'common';
 getUrlParam('id')
 </code>
 </pre>
+
+
+<p>文件大小显示格式化</p>
+<pre>
+<code>
+//common.js
+
+//文件大小显示 格式化 例:10KB，200MB，1020GB
+let fileSizeFormat = function(fileSize){
+    let formatFileSize = '0B';
+    if(fileSize){
+        if(fileSize<1024){ formatfilesize="fileSize+'B';" }else{="" let="" ksize="fileSize/1024;" if(ksize<1024){="" 'kb';="" msize="kSize/1024;" if(msize<1024){="" 'mb';="" gsize="mSize/1024;" if(gsize<1024){="" 'gb';="" tsize="gSize/1024;" if(tsize<1024){="" 'tb';="" }="" return="" formatfilesize;="" };="" module.exports="{" filesizeformat="" 使用="" import="" {="" from="" 'common';="" filesizeformat(filesize)="" <="" code="">
+</1024){></code></pre>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=28613416.mp3">
