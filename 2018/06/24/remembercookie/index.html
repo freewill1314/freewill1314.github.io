@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Superman,"> 
-    <meta name="description" content="stonelee,邮箱地址验证：/^(&amp;quot;)?(?:[^\.&amp;quot;])(?:(?:[\.])?(?:[\w\-!#$%&amp;amp;&amp;apos;*+/=?^_`{|}~]))*\1@(\w[\-\w]*\.,"> 
+    <meta name="description" content="stonelee,"> 
     <meta name="author" content="Stone Lee"> 
     <link rel="alternative" href="atom.xml" title="Stone-Lee&#39;s zone" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -27,7 +27,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">remember</h3>
+    <h3 class="subtitle">remember cookie</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -44,16 +44,58 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">remember</h1>
+        <h1 class="title">remember cookie</h1>
         <div class="stuff">
             <span>六月 24, 2018</span>
             
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/cookie/">cookie</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/">js</a></li></ul>
+
 
         </div>
         <div class="content markdown">
-            
+            <p style="text-indent:2em;">系统登录时，选中记录帐号、密码，则会保存在COOKIE中；后续有效期内访问输入帐号，则自动带出密码</p>
+
+<pre>
+<code>
+//设置Cookie
+function setCookie(name, value, expdays){
+    let expdate = new Date();
+    //设置Cookie过期日期
+    expdate.setDate(expdate.getDate() + expdays);
+    //添加Cookie
+    document.cookie = name + "=" + escape(value) + ";expires=" + expdate.toUTCString();
+}
+
+//获取Cookie
+function getCookie(name){
+    if(document.cookie.length>0){
+        //获取name在Cookie中起止位置
+        let start = document.cookie.indexOf(name + "=");
+
+        if(start != -1){
+            start = start + name.length + 1;
+            //获取value的终止位置
+            let end = document.cookie.indexOf(";", start);
+            if(end == -1){
+                end = document.cookie.length
+            };
+
+            //截获cookie的value值,并返回
+            return unescape(document.cookie.substring(start, end));
+        }
+    }
+    return "" ;
+}
+
+//清除Cookie
+function delCookie(name){
+    setCookie(name, "", -1);
+}
+
+</code>
+</pre>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
                 <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=30089063.mp3">
             </audio>
         </div>
